@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Loader from "@/components/ui/Loader";
 
@@ -14,7 +14,7 @@ const AppRouter = () => {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<Designers />} />
+          <Route path="/" element={<Navigate to="/designers" replace />} />
           <Route path="designers" element={<Designers />} />
           <Route path="editor" element={<Editor />} />
         </Route>
